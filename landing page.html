@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goa Escapade</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            overflow-x: hidden; 
+        }
+        header {
+            position: relative;
+            width: 100%;
+            height: 100vh; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo {
+            position: absolute;
+            top: 20px;
+            left: 20px; 
+            font-size: 30px;
+            font-weight: 700;
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.1);
+        }
+
+        .logo a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .logo a span {
+            color: #ffca28;
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 20px 60px; /* Adjust padding for better alignment */
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            gap: 25px;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            font-size: 20px;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #fff;
+            color: #387fb2;
+        }
+
+        .content {
+            text-align: center;
+        }
+
+        .content h1 {
+            font-size: 100px;
+            color: #fff;
+            font-weight: 600;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .content a {
+            text-decoration: none;
+            display: inline-block;
+            color: #000000;
+            font-size: 24px;
+            border: 2px solid #fff;
+            padding: 14px 70px;
+            border-radius: 50px;
+            margin-top: 50px;
+            background-color: #1578d4;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .content a:hover {
+            background-color: #fff;
+            color: #1578d4;
+        }
+
+        .back {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        @media (max-aspect-ratio: 16/9) {
+            .back {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        #beaches {
+            padding: 40px;
+            margin: 20px 0;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #1578d4;
+            font-size: 28px;
+            font-weight: 600;
+        }
+
+        .beach-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .beach {
+            position: relative;
+            padding: 20px;
+            background-color: #191e57;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            overflow: hidden;
+            width: calc(33.33% - 40px);
+            max-width: 300px;
+            flex: 1 0 300px;
+        }
+
+        .beach:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .beach img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .beach-info {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #333;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .beach:hover .beach-info {
+            opacity: 1;
+        }
+
+        .beach-info h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .beach-info p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .directions-button {
+            display: inline-block;
+            padding: 10px 15px;
+            font-size: 14px;
+            color: #ffffff;
+            background-color: #ffca28;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .directions-button:hover {
+            background-color: #e6b022;
+        }
+        @media screen and (max-width: 768px) {
+            .beach {
+                width: calc(50% - 40px);
+                flex: 1 0 calc(50% - 40px);
+            }
+        }
+
+        @media screen and (max-width: 576px) {
+            .beach {
+                width: calc(100% - 40px);
+                flex: 1 0 calc(100% - 40px);
+            }
+        }
+
+        #restaurants-bars {
+            padding: 40px;
+            margin: 20px 0;
+        }
+
+        .restaurant-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .restaurant {
+           
+            position: relative;
+            padding: 20px;
+            background-color: #ee9d51;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            overflow: hidden;
+            width: calc(33.33% - 40px);
+            max-width: 300px;
+            flex: 1 0 300px;
+        }
+
+        .restaurant:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .restaurant img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .restaurant-info {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #333;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .restaurant:hover .restaurant-info {
+            opacity: 1;
+        }
+
+        .restaurant-info h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .restaurant-info p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        @media screen and (max-width: 768px) {
+            .restaurant {
+                width: calc(50% - 40px);
+                flex: 1 0 calc(50% - 40px);
+            }
+        }
+
+        @media screen and (max-width: 576px) {
+            .restaurant {
+                width: calc(100% - 40px);
+                flex: 1 0 calc(100% - 40px);
+            }
+        }
+        
+        #contact {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+            text-align: center;
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .contact-container h2 {
+            font-size: 36px;
+            color: #1578d4;
+            margin-bottom: 30px;
+        }
+
+        .contact-container p {
+            font-size: 18px;
+            margin-bottom: 40px;
+        }
+
+        .contact-info {
+            flex: 1;
+            max-width: 300px;
+            margin-right: 20px; 
+        }
+
+        .contact-info h3 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .contact-info p {
+            font-size: 18px;
+            color: #666;
+        }
+
+        .contact-form {
+            flex: 1;
+            max-width: 400px;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form h3 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .contact-form textarea {
+            height: 120px;
+        }
+
+        .contact-form button {
+            background-color: #1578d4;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background-color: #0d5eaa;
+        }
+
+        @media screen and (max-width: 768px) {
+            .contact-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .contact-info,
+            .contact-form {
+                width: 100%;
+                max-width: none;
+                margin-right: 0;
+                margin-bottom: 30px; /* Add space between sections on smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="#">Goa <span>Escapade</span></a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#beaches">Beaches</a></li>
+                <li><a href="#restaurants-bars">Restaurants & Bars</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="content">
+            <h1>Welcome to Goa</h1>
+            <a href="#beaches">Explore Now</a>
+        </div>
+        <video class="back" autoplay loop muted>
+            <source src="4440816-hd_1920_1080_25fps.mp4" type="video/mp4">
+        </video>
+    </header>
+
+
+    <section id="beaches">
+        <h2>Popular Beaches in Goa</h2>
+        <div class="beach-container">
+            <div class="beach">
+                <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/12/59/82/3a/beach-attached-to-the.jpg?w=500&h=400&s=1" alt="Palolem Beach">
+                <div class="beach-info">
+                    <h3>Palolem Beach</h3>
+                    <p>Palolem Beach is a vibrant cove known for its lively atmosphere and scenic beauty.</p>
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=Palolem+Beach,+Goa" target="_blank" class="directions-button">Get Directions</a>
+
+                </div>
+            </div>
+            <div class="beach">
+                <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0e/7c/44/65/far-right-end-agonda.jpg?w=500&h=400&s=1" alt="Agonda Beach">
+                <div class="beach-info">
+                    <h3>Agonda Beach</h3>
+                    <p>Agonda Beach is a tranquil paradise with golden sands and serene waters.</p>
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=Agonda+Beach,+Goa" target="_blank" class="directions-button">Get Directions</a>
+                </div>
+            </div>
+            <div class="beach">
+                <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/18/3a/01/bb/f0/88/sunset-from-the-dome.jpg?w=500&h=-1&s=1" alt="Cavelossim Beach">
+                <div class="beach-info">
+                    <h3>Cavelossim Beach</h3>
+                    <p>Cavelossim Beach is a serene retreat with pristine sands & calm waters.</p>
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=Cavelossim+Beach,+Goa" target="_blank" class="directions-button">Get Directions</a>
+                </div>
+            </div>
+            <div class="beach">
+                <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/03/76/e3/87/varca-beach.jpg?w=500&h=-1&s=1" alt="Varca Beach">
+                <div class="beach-info">
+                    <h3>Varca Beach</h3>
+                    <p>Varca Beach is a peaceful haven known for its clean, white sands & gentle waves.</p>
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=Varca+Beach,+Goa" target="_blank" class="directions-button">Get Directions</a>
+                </div>
+            </div>
+            <div class="beach">
+                <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0a/f9/05/35/fresh-water-lake.jpg?w=500&h=-1&s=1" alt="Arambol Beach">
+                <div class="beach-info">
+                    <h3>Arambol Beach</h3>
+                    <p>Arambol Beach is a bohemian paradise with a relaxed vibe and stunning sunset views.</p>
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=Arambol+Beach,+Goa" target="_blank" class="directions-button">Get Directions</a>
+                </div>
+            </div>
+            <div class="beach">
+                <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/66/b5/10/benaulim-beach.jpg?w=500&h=-1&s=1" alt="Benaulim Beach">
+                <div class="beach-info">
+                    <h3>Benaulim Beach</h3>
+                    <p>Benaulim Beach is a tranquil escape featuring soft sands and a laid-back atmosphere.</p>
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=Benaulim+Beach,+Goa" target="_blank" class="directions-button">Get Directions</a>
+                </div>
+            </div>
+            <div class="beach">
+                <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/3f/03/46/img-20191201-130737-largejpg.jpg?w=500&h=400&s=1" alt="Candolim Beach">
+                <div class="beach-info">
+                    <h3>Candolim Beach</h3>
+                    <p>It is a popular destination with golden sands and vibrant beach shacks.</p>
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=Candolim+Beach,+Goa" target="_blank" class="directions-button">Get Directions</a>
+                </div>
+            </div>
+            <div class="beach">
+                <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/17/27/06/b7/view.jpg?w=500&h=400&s=1" alt="Morjim Beach">
+                <div class="beach-info">
+                    <h3>Morjim Beach</h3>
+                    <p>Morjim Beach is a serene haven famous for its nesting Olive Ridley sea turtles and tranquil ambiance.</p>
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=Morjim+Beach,+Goa" target="_blank" class="directions-button">Get Directions</a>
+                </div>
+            </div>
+            <div class="beach">
+                <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/16/e5/03/bd/img-20181104-094252-largejpg.jpg?w=500&h=-1&s=1" alt="Vagator Beach">
+                <div class="beach-info">
+                    <h3>Vagator Beach</h3>
+                    <p>Vagator Beach is renowned for its dramatic cliffs, golden sands, and vibrant beach parties.</p>
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=Vagator+Beach,+Goa" target="_blank" class="directions-button">Get Directions</a>
+                </div>
+            </div>
+            <div class="beach">
+                <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/09/5a/c8/e1/colva-beach.jpg?w=500&h=-1&s=1" alt="Cola Beach">
+                <div class="beach-info">
+                    <h3>Cola Beach</h3>
+                    <p>Cola Beach is a hidden gem with pristine blue waters and secluded surroundings, perfect for a tranquil retreat.</p>
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=Cola+Beach,+Goa" target="_blank" class="directions-button">Get Directions</a>
+                </div>
+            </div>
+            <div class="beach">
+                <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/13/85/de/43/butterfly-beach.jpg?w=500&h=400&s=1" alt="Butterfly Beach">
+                <div class="beach-info">
+                    <h3>Butterfly Beach</h3>
+                    <p>Butterfly Beach is a secluded paradise known for its breathtaking natural beauty and vibrant butterfly population.</p>
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=Butterfly+Beach,+Goa" target="_blank" class="directions-button">Get Directions</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="restaurants-bars">
+        <h2>Best Restaurants & Bars in Goa</h2>
+        <div class="restaurant-container">
+            <div class="restaurant">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQk8wNbQ86cjJoKByUQlWeNuBMYk_YT8CjjdQ&s" alt="Gunpowder Restaurant">
+                <div class="restaurant-info">
+                    <h3>Gunpowder</h3>
+                    <p>A rustic gem offering authentic South Indian cuisine with a Goan twist.</p>
+                    <a href="https://www.google.com/maps/search/Gunpowder+Restaurant+Goa" target="_blank">Location</a>
+                </div>
+            </div>
+            <div class="restaurant">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTr5Ch2vyxLxj_juYMFFkY862B8-AHbIIQL_w&s" alt="Thalassa">
+                <div class="restaurant-info">
+                    <h3>Thalassa</h3>
+                    <p>Known for its stunning sunset views, Thalassa serves delicious Greek dishes.</p>
+                    <a href="https://www.google.com/maps/search/Thalassa+Goa" target="_blank">Location</a>
+                </div>
+            </div>
+            <div class="restaurant">
+                <img src="https://media-cdn.tripadvisor.com/media/photo-s/1a/02/00/e0/laid-back-seating.jpg" alt="Baba Au Rhum">
+                <div class="restaurant-info">
+                    <h3>Baba Au Rhum</h3>
+                    <p>A cozy bakery and café offering delectable pastries and coffee.</p>
+                    <a href="https://www.google.com/maps/search/Baba+Au+Rhum+Goa" target="_blank">Location</a>
+                </div>
+            </div>
+            <div class="restaurant">
+                <img src="https://b.zmtcdn.com/data/reviews_photos/a3a/cd778543f74170e0dec78d37fa5aaa3a_1543007444.jpg" alt="Brittos">
+                <div class="restaurant-info">
+                    <h3>Brittos</h3>
+                    <p>A popular shack-style beachfront restaurant known for its seafood and Goan cuisine.</p>
+                    <a href="https://www.google.com/maps/search/Brittos+Goa" target="_blank">Location</a>
+                </div>
+            </div>
+            <div class="restaurant">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3iyy5ZCxTwQamiX0GaX_0pNi1u3Bm1UA_TQ&s" alt="fisherman's wharf goa">
+                <div class="restaurant-info">
+                    <h3>fisherman's wharf goa</h3>
+                    <p>Offering a variety of seafood dishes in a lively atmosphere with views of the river.</p>
+                    <a href="https://www.google.com/maps/search/Fisherman's+Wharf+Goa" target="_blank">Location</a>
+                </div>
+            </div>
+            <div class="restaurant">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8MpWcGVvYcvmRo6RcWXP0v9MhP8I9Gzudiw&s" alt="Curlies">
+                <div class="restaurant-info">
+                    <h3>Curlies</h3>
+                    <p>A legendary beach shack with a vibrant atmosphere, live music, and delicious food.</p>
+                    <a href="https://www.google.com/maps/search/Curlies+Goa" target="_blank">Location</a>
+                </div>
+            </div>
+            <div class="restaurant">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTe3H_o-vGxHB7hDP49tklHLHs_GMj3I874lg&s" alt="Cafe's Mambo">
+                <div class="restaurant-info">
+                    <h3>Cafe's Mambo</h3>
+                    <p>A famous nightclub known for its energetic ambiance and international DJs.</p>
+                    <a href="https://www.google.com/maps/search/Cafe+Mambo+Goa" target="_blank">Location</a>
+                </div>
+            </div>
+            <div class="restaurant">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ1i9dnC6rnnGT3uSXQtZHj1lMdMzdQoXbEg&s" alt="LPK Waterfront">
+                <div class="restaurant-info">
+                    <h3>LPK Waterfront</h3>
+                    <p>A riverside club featuring Goan and international music, with a picturesque setting.</p>
+                    <a href="https://www.google.com/maps/search/LPK+Waterfront+Goa" target="_blank">Location</a>
+                </div>
+            </div>
+        </div>
+    </section>
+            <section id="contact">
+                <div class="contact-container">
+                    <h2>Contact Us</h2>
+                    <p>If you have any questions or inquiries, feel free to get in touch with us.</p>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <h3>Email</h3>
+                            <p>contact@example.com</p>
+                        </div>
+                        <div class="contact-item">
+                            <h3>Phone</h3>
+                            <p>+1234567890</p>
+                        </div>
+                        <div class="contact-item">
+                            <h3>Address</h3>
+                            <p>123 Beach Road, Goa, India</p>
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                        <h3>Send us a Message</h3>
+                        <form action="#" method="post">
+                            <input type="text" name="name" placeholder="Your Name" required>
+                            <input type="email" name="email" placeholder="Your Email" required>
+                            <textarea name="message" placeholder="Your Message" required></textarea>
+                            <button type="submit">Send</button>
+                        </form>
+                    </div>
+                </div>
+            </section> 
+</body>
+</html>

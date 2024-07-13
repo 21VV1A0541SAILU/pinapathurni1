@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beaches</title>
+    <style>
+        body {
+            background-color: #f8f9fa;
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .header {
+            background-color: #1578d4;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: 700;
+            color: #fff;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .logo:hover {
+            color: #ffca28;
+        }
+
+        h1 {
+            margin-top: 20px;
+            font-size: 36px;
+            font-weight: 600;
+            color: #333;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        #beaches {
+            padding: 40px;
+            margin: 20px 0;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #1578d4;
+            font-size: 28px;
+            font-weight: 600;
+        }
+
+        .beach-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .beach {
+            position: relative;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            overflow: hidden;
+            width: calc(33.33% - 40px);
+            max-width: 300px;
+            flex: 1 0 300px;
+        }
+
+        .beach:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .beach img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .beach-info {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #333;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .beach:hover .beach-info {
+            opacity: 1;
+        }
+
+        .beach-info h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .beach-info p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        @media screen and (max-width: 768px) {
+            .beach {
+                width: calc(50% - 40px);
+                flex: 1 0 calc(50% - 40px);
+            }
+        }
+
+        @media screen and (max-width: 576px) {
+            .beach {
+                width: calc(100% - 40px);
+                flex: 1 0 calc(100% - 40px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="#" class="logo">Sea <span>Shore</span></a>
+        <h1>Discover Beautiful Beaches</h1>
+    </div>
+
+    <section id="beaches">
+        <h2>Beaches</h2>
+        <div class="beach-container">
+            <div class="beach">
+                <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/12/59/82/3a/beach-attached-to-the.jpg?w=500&h=400&s=1" alt="Palolem Beach">
+                <div class="beach-info">
+                    <h3>Palolem Beach</h3>
+                    <p>Palolem Beach is a vibrant cove known for its lively atmosphere and scenic beauty.</p>
+                </div>
+            </div>
+            
+             <div class="beach">
+                <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0e/7c/44/65/far-right-end-agonda.jpg?w=500&h=400&s=1" alt="Agonda Beach">
+                <div class="beach-info">
+                    <h3>Agonda Beach</h3>
+                    <p>Agonda Beach is a tranquil paradise with golden sands and serene waters.</p>
+                </div>
+            </div>
+            <div class="beach">
+                <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/18/3e/36/95/baga-sea-beach.jpg?w=500&h=400&s=1" alt="Baga Beach">
+                <div class="beach-info">
+                    <h3>Baga Beach</h3>
+                    <p>Baga Beach is a bustling hotspot famous for its night and water sports activities.</p>
+                </div>
+            </div>
+            <div class="beach">
+                <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/01/bb/f0/88/sunset-from-the-dome.jpg?w=500&h=-1&s=1" alt="Cavelossim Beach">
+                <div class="beach-info">
+                    <h3>Cavelossim Beach</h3>
+                    <p>Cavelossim Beach is a serene retreat with pristine sands & calm waters.</p>                </div>
+            </div>
+            <div class="beach">
+                <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/03/76/e3/87/varca-beach.jpg?w=500&h=-1&s=1" alt="Varca Beach">
+                <div class="beach-info">
+                    <h3>Varca Beach</h3>
+                        <p>Varca Beach is a peaceful haven known for its clean, white sands & gentle waves.</p>
+                </div>
+            </div>
+            <div class="beach">
+                <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0a/f9/05/35/fresh-water-lake.jpg?w=500&h=-1&s=1" alt="Arambol Beach">
+                <div class="beach-info">
+                    <h3>Arambol Beach</h3>
+                 <p>Arambol Beach is a bohemian paradise with a relaxed vibe and stunning sunset views.</p>
+                </div>
+            </div>
+            <div class="beach">
+                <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/66/b5/10/benaulim-beach.jpg?w=500&h=-1&s=1" alt="Benaulim Beach">
+                <div class="beach-info">
+                    <h3>Benaulim Beach</h3>
+                    <p>Benaulim Beach is a tranquil escape featuring soft sands and a laid-back atmosphere.</p>
+                </div>
+            </div>
+            <div class="beach">
+                <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/3f/03/46/img-20191201-130737-largejpg.jpg?w=500&h=400&s=1" alt="Candolim Beach">
+                <div class="beach-info">
+                    <h3>Candolim Beach</h3>
+                    <p>It is a popular destination with golden sands and vibrant beach shacks.</p>
+                </div>
+            </div>
+            <div class="beach">
+                <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/17/27/06/b7/view.jpg?w=500&h=400&s=1" alt="Morjim Beach">
+                <div class="beach-info">
+                    <h3>Morjim Beach</h3>
+                    <p>Morjim Beach is a serene haven famous for its nesting Olive Ridley sea turtles and tranquil ambiance.</p>
+              </div>
+            </div>
+            <div class="beach">
+                <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/16/e5/03/bd/img-20181104-094252-largejpg.jpg?w=500&h=-1&s=1">
+                <div class="beach-info">
+                <h3>Vagator Beach</h3>
+                <p>Vagator Beach is renowned for its dramatic cliffs, golden sands, and vibrant beach parties.</p>
+            </div>
+            </div>
+            <div class="beach">
+                <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/09/5a/c8/e1/colva-beach.jpg?w=500&h=-1&s=1">
+                <div class="beach-info">
+                <h3>Cola Beach</h3>
+                <p>Cola Beach is a hidden gem with pristine blue waters and secluded surroundings, perfect for a tranquil retreat.</p>
+            </div>
+            </div>
+            <div class="beach">
+                <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/13/85/de/43/butterfly-beach.jpg?w=500&h=400&s=1">
+                <div class="beach-info">
+                <h3>Butterfly Beach</h3>
+                <p>Butterfly Beach is a secluded paradise known for its breathtaking natural beauty and vibrant butterfly population.</p>
+            </div>
+            </div>
+            <!-- Add more beach sections as needed -->
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shanmuka Priya</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            background-color: #ffffff;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            height: 100vh; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            /*background-image: url('https://www.jncreative.com/wp-content/uploads/2013/09/web-design-portfolio-background.jpg'); /* Add your background image */
+            background-size: cover;
+            background-position: center;
+        }
+
+        .logo {
+            position: absolute;
+            top: 40px;
+            left: 20px; 
+            font-size: 30px;
+            font-weight: 700;
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.1); /* Add hover effect */
+        }
+
+        .logo a {
+            color: #130011;
+            text-decoration: none;
+        }
+
+        .logo a span {
+            color: crimson;
+            transition: all 0.3s ease;
+        }
+
+        .sticky .logo a span {
+            color: #f6f2f5;
+        }
+
+        nav {
+            position: absolute;
+            top: 40px; 
+            right: 45px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            color: #110202;
+            font-size: 25px;
+            text-decoration: none;
+            padding: 10px 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: rgb(76, 60, 64);
+            color: #fff;
+        }
+
+        .animated {
+            font-size: 3em;
+            overflow: hidden; 
+            border-right: .15em solid orange; 
+            white-space: nowrap; 
+            margin: 0 auto; 
+            letter-spacing: .15em; 
+            animation:
+                typing 3.5s steps(30, end) infinite,
+                blink-caret .75s step-end infinite,
+                color-change 7s infinite; 
+        }
+        
+        /* Add more CSS styles for other sections and elements */
+
+        /* Add media queries for responsiveness */
+
+        /* Custom CSS for main page */
+        main {
+            padding: 80px 0; /* Adjusted padding for main content */
+        }
+
+        /* Styles for About section */
+#about {
+    position: relative;
+    padding: 40px;
+    margin: 20px 0;
+}
+
+#about h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #333;
+    font-size: 32px;
+    animation: slideInDown 1s ease;
+}
+
+.about-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.arrow {
+    cursor: pointer;
+    font-size: 24px;
+    padding: 10px;
+    background-color: crimson;
+    color: #fff;
+    border-radius: 50%;
+    user-select: none;
+    transition: background-color 0.3s;
+}
+
+.arrow:hover {
+    background-color: darkred;
+}
+
+.about-content {
+    display: flex;
+    overflow: hidden;
+    width: 80%; /* Adjust width as needed */
+    scroll-behavior: smooth;
+}
+
+.tile {
+    min-width: 250px;
+    margin-right: 20px;
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.tile:hover {
+    transform: translateY(-10px);
+}
+
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInDown {
+            from {
+                transform: translateY(-50%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                transform: translateX(-50%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(50%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 15em; }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: orange; }
+        }
+
+        @keyframes color-change {
+            0% { color: #100a09; }
+            33% { color: #1e90ff; }
+            66% { color: #203620; }
+            100% { color: #510341; }
+        }
+
+        .animated::after {
+            content: ''; 
+            display: inline-block;
+            width: .15em;
+            background-color: orange;
+            animation: blink-caret .75s step-end infinite;
+            animation-delay: 3.5s;
+            animation-duration: 1.75s;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        section {
+            padding: 40px 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+        }
+
+        .contact {
+            max-width: 1900px;
+            margin: 0 auto;
+            background-color: #f9f9f9;
+        }
+
+        .contact .title {
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .contact .title::after {
+            content: "";
+            width: 60px;
+            height: 4px;
+            background: crimson;
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .contact .contact-content {
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+        }
+
+        @media (min-width: 768px) {
+            .contact .contact-content {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: flex-start;
+            }
+        }
+
+        .contact .contact-content .column {
+            flex: 1;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            /*box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);*/
+        }
+
+        .contact .contact-content .text {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .contact .contact-content .left p {
+            text-align: justify;
+            margin-bottom: 20px;
+        }
+
+        .contact .contact-content .left .icons .row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .contact .contact-content .left .icons .row i {
+            font-size: 25px;
+            color: rgb(210, 97, 120);
+            margin-right: 20px;
+        }
+
+        .contact .contact-content .left .icons .row .info .head {
+            font-weight: 600;
+        }
+
+        .contact .contact-content .left .icons .row .info .sub-title {
+            color: #555;
+        }
+
+        .contact .right form .fields {
+            display: flex;
+            gap: 25px;
+        }
+
+        .contact .right form .field,
+        .contact .right form .fields .field {
+            flex: 1;
+            margin-bottom: 15px;
+        }
+
+        .contact .right form .textarea {
+            height: 220px;
+            width: 100%;
+            margin-bottom: 25px;
+        }
+
+        .contact .right form .field input,
+        .contact .right form .textarea textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .contact .right form .field input:focus,
+        .contact .right form .textarea textarea:focus {
+            border-color: #555;
+        }
+
+        .contact .right form .button {
+            text-align: center;
+        }
+
+        .contact .right form .button button {
+            padding: 10px 25px;
+            background-color: crimson;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact .right form .button button:hover {
+            background-color: darkred;
+        }
+        #skills {
+            position: relative;
+            padding: 40px;
+            margin: 20px 0;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        #skills h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #333;
+            font-size: 32px;
+            animation: slideInDown 1s ease;
+        }
+
+        .skills-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .arrow {
+            cursor: pointer;
+            font-size: 24px;
+            padding: 10px;
+            background-color: crimson;
+            color: #fff;
+            border-radius: 50%;
+            user-select: none;
+            transition: background-color 0.3s;
+        }
+
+        .arrow:hover {
+            background-color: darkred;
+        }
+
+        .skills-content {
+            display: flex;
+            overflow-x: scroll;
+            scroll-behavior: smooth;
+            width: 90%;
+        }
+
+        .skill {
+            min-width: 250px;
+            margin-right: 20px;
+            padding: 40px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            text-align: center;
+        }
+
+        .skill i {
+            font-size: 40px;
+            color: crimson;
+            margin-bottom: 20px;
+        }
+
+        .skill:hover {
+            transform: translateY(-10px);
+        }
+
+        #projects {
+                text-align: center; /* Center text within the certifications section */
+                padding: 40px 20px;
+                background-color: #fff;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                margin: 20px 0;
+        }
+
+        #projects h2 {
+                margin-bottom: 40px; /* Space between heading and cards */
+        }
+        .project-container {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 39px;
+                justify-content: center;
+        }
+
+        .project-card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 250px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+.project-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px 10px 0 0;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.project-info {
+    padding: 15px;
+}
+
+.project-info h3 {
+    margin: 10px 0;
+    color: #333;
+}
+
+.project-info p {
+    color: #777;
+}
+#certifications {
+                text-align: center; /* Center text within the certifications section */
+                padding: 40px 20px;
+                background-color: #fff;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                margin: 20px 0;
+        }
+
+        #certifications h2 {
+                margin-bottom: 40px; /* Space between heading and cards */
+        }
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 250px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .card:hover {   
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .card h3 {
+            margin: 10px 0;
+            color: #333;
+        }
+
+        .card p {
+            color: #777;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        footer p a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer p a:hover {
+            color: crimson;
+        }
+        @media (max-width: 768px) {
+            header {
+                height: auto;
+                padding: 20px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .contact .contact-content {
+                flex-direction: column;
+            }
+        }
+        .scroll-up-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: crimson;
+            color: #fff;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: none;
+        }
+
+        .scroll-up-btn:hover {
+            background-color: #e60000;
+        }
+
+        .scroll-up-btn.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo"><a href="#">Port<span>Folio.</span></a></div>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="animated">Shanmuka Priya</div>
+    </header>
+    <main>
+        <section id="about">
+            <h2>About Me</h2>
+            <div class="about-container">
+                <div class="arrow left" onclick="scrollContent('left')">&#10094;</div>
+                <div class="about-content">
+                    <div class="tile">
+                        <h3>Welcome!</h3>
+                        <p>Hello! I am Shanmuka Priya, a passionate web developer with a knack for creating stunning and efficient websites. I specialize in front-end development and have experience in various web technologies. My goal is to bring your ideas to life and create websites that are not only visually appealing but also user-friendly and functional.</p>
+                    </div>
+                    <div class="tile">
+                        <h3>Data Enthusiast</h3>
+                        <p>My journey into the world of technology began with my fascination for the endless possibilities that the internet offers. As I dove deeper into data science, I discovered the power of data in uncovering insights and driving informed decision-making.</p>
+                    </div>
+                    <div class="tile">
+                        <h3>Creative Problem Solver</h3>
+                        <p>My passion for machine learning and AI stems from the desire to leverage cutting-edge technologies to tackle real-world challenges and push the boundaries of what's possible.</p>
+                    </div>
+                    <div class="tile">
+                        <h3>Continuous Learner</h3>
+                        <p>Whether I'm crafting elegant web solutions, fortifying digital defenses against cyber threats, or harnessing the potential of data-driven technologies, I approach each endeavor with dedication, creativity, and a relentless pursuit of excellence.</p>
+                    </div>
+                </div>
+                <div class="arrow right" onclick="scrollContent('right')">&#10095;</div>
+            </div>
+        </section>
+        
+        <section id="skills">
+            <h2>Skills</h2>
+            <div class="skills-container">
+                <div class="arrow left" onclick="scrollSkills('left')">&#10094;</div>
+                <div class="skills-content">
+                    <div class="skill">
+                        <i class="fas fa-code"></i>
+                        <h3>Programming Languages</h3>
+                        <p>C, Python, Java</p>
+                    </div>
+                    <div class="skill">
+                        <i class="fas fa-laptop-code"></i>
+                        <h3>Web Development</h3>
+                        <p>HTML, CSS, React, Node.js</p>
+                    </div>
+                    <div class="skill">
+                        <i class="fas fa-database"></i>
+                        <h3>Database Management</h3>
+                        <p>MySQL</p>
+                    </div>
+                    <div class="skill">
+                        <i class="fas fa-cloud"></i>
+                        <h3>Cloud Computing</h3>
+                        <p>Azure</p>
+                    </div>
+                    <div class="skill">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Cybersecurity</h3>
+                        <p>Penetration Testing, Ethical Hacking</p>
+                    </div>
+                    <div class="skill">
+                        <i class="fas fa-brain"></i>
+                        <h3>Critical Thinking</h3>
+                        <p>Ability to analyze situations, identify patterns, and make reasoned decisions</p>
+                    </div>
+                    <div class="skill">
+                        <i class="fas fa-cogs"></i>
+                        <h3>Problem Solving</h3>
+                        <p>Capability to identify problems, evaluate, and implement effective solutions.</p>
+                    </div>
+                    <div class="skill">
+                        <i class="fas fa-lightbulb"></i>
+                        <h3>Creativity</h3>
+                        <p>Bringing innovative ideas and solutions to the table, thinking outside the box to tackle challenges.</p>
+                    </div>
+                    <div class="skill">
+                        <i class="fas fa-clock"></i>
+                        <h3>Time Management</h3>
+                        <p>Efficiently managing time and prioritizing tasks to achieve goals effectively.</p>
+                    </div>
+                    <div class="skill">
+                        <i class="fas fa-comments"></i>
+                        <h3>Communication</h3>
+                        <p>Effective verbal and written communication skills to convey ideas and information clearly.</p>
+                    </div>
+                </div>
+                <div class="arrow right" onclick="scrollSkills('right')">&#10095;</div>
+            </div>
+        </section>
+        
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="project-container">
+                <div class="project-card">
+                    <img src="https://media.joeducation.eu/joeducation.eu/wp-content/uploads/2023/08/Digital-hub-1-sito-IT-EN-opt-1024x556.jpg" alt="Digital Hub">
+                    <div class="project-info">
+                        <h3>Digital Hub</h3>
+                        <p>A comprehensive platform for digital collaboration and innovation.It was a website Developed for the welfare of both students and teachers,In this students can solve problem statements with the help of mentors</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5pVbZyICO5UFthUJS2kQLc2uKZxK4xZb2Lw&s" alt="Landing Pages">
+                    <div class="project-info">
+                        <h3>Landing Pages</h3>
+                        <p>Custom-designed landing pages to maximize user engagement and conversion.I have designed many landing pages irrespective of the domains ,which was quite Interesting</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="https://user-images.githubusercontent.com/79099734/156505537-8e28ee14-dd20-4299-9eea-984d7068c7fd.png" alt="Clone of Netflix">
+                    <div class="project-info">
+                        <h3>Clone of Netflix</h3>
+                        <p>An exact replica of Netflix's user interface with added features and enhancements.This was most fun generating project because the website ,I developed was the most used website in the present situation for entertainment.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="https://edurev.gumlet.io/AllImages/original/ApplicationImages/CourseImages/81d615ba-c9ef-43e1-9fe8-8d91cc16be71_CI.jpg" alt="Compiler Design">
+                    <div class="project-info">
+                        <h3>Compiler Design</h3>
+                        <p>Developing efficient compilers for various programming languages</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="certifications">
+            <h2>Certifications</h2>
+            <div class="card-container">
+                <div class="card">
+                    <img src="https://www.ncsc.gov.uk/images/iStock-1420039900.jpg" alt="Cybersecurity Fundamentals">
+                    <h3>Cybersecurity Fundamentals</h3>
+                    <p>Cisco</p>
+                </div>
+                <div class="card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJFdHJe0vFhiHcTO3UinC2HBFDXb34lcAh4g&s" alt="Python Essentials">
+                    <h3>Python Essentials</h3>
+                    <p>Cisco</p>
+                </div>
+                <div class="card">
+                    <img src="https://media.licdn.com/dms/image/D4D10AQEv5w1mbhQurw/image-shrink_1280/0/1685761159546?e=2147483647&v=beta&t=If9YV0xb8QKF8-fIkyOz4IEVKGCfXLCOapYgUU8UcMU" alt="Microsoft Azure AI Fundamentals">
+                    <h3>Microsoft Azure AI Fundamentals</h3>
+                    <p>Microsoft</p>
+                </div>
+                <div class="card">
+                    <img src="https://www.edynamiclearning.com/wp-content/uploads/2019/09/EDL221-Intro_to_Programming_1a.jpg"alt="Intro To Programming Course">
+                    <h3>Intro To Programming Course</h3>
+                    <p>Kaggle</p>
+                </div>
+                <div class="card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFELMg19khoufcy-RGrSnxPaEod2PP3NSVBg&s" alt="Front End Development">
+                    <h3>Front End Development</h3>
+                    <p>SkillIndia</p>
+                </div>
+                <div class="card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8UinLPsJGNTlGsTbo-CXx4Ul3lDYTLx3RsA&s">
+                    <h3>Introduction to Machine Learning</h3>
+                    <p>Edx</p>
+                </div>
+                <div class="card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVdWDQWtATGD4YRtOP8yHYPARxcX9UbTcYFQ&s" alt="Intro To Programming Course">
+                    <h3>Introduction to Data Science</h3>
+                    <p>Edx</p>
+                </div>
+                <div class="card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZiaAH6tIdqLPyPGDT07c5IK2KE2IbhfK34Q&s" alt="Python Essentials">
+                    <h3>Python Golden Badge</h3>
+                    <p>Hacker Rank</p>
+                </div>
+            </div>
+        </section>
+        
+        
+        <section id="contact" class="contact">
+            <div class="max-width">
+                <h2 class="title">Contact Me</h2>
+                <div class="contact-content">
+                    <div class="column left">
+                        <div class="text">Get in Touch</div>
+                        <p>Feel free to reach out to me through any of the following methods. I am always open to discussing new projects, creative ideas, or opportunities to be part of your vision.</p>
+                        <div class="icons">
+                            <div class="row">
+                                <i class="fas fa-user"></i>
+                                <div class="info">
+                                    <div class="head">Name</div>
+                                    <div class="sub-title">Shanmuka Priya</div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div class="info">
+                                    <div class="head">Address</div>
+                                    <div class="sub-title"> Rajahmundry, India</div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <i class="fas fa-envelope"></i>
+                                <div class="info">
+                                    <div class="head">Email</div>
+                                    <div class="sub-title">priyapshanmuka@gmail.com</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column right">
+                        <div class="text">Message Me</div>
+                        <form action="#">
+                            <div class="fields">
+                                <div class="field name">
+                                    <input type="text" placeholder="Name" required>
+                                </div>
+                                <div class="field email">
+                                    <input type="email" placeholder="Email" required>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <input type="text" placeholder="Subject" required>
+                            </div>
+                            <div class="field textarea">
+                                <textarea cols="30" rows="10" placeholder="Message.." required></textarea>
+                            </div>
+                            <div class="button">
+                                <button type="submit">Send Message</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+    <p>&copy; 2024 Shanmuka Priya. All Rights Reserved. <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
+    <div class="scroll-up-btn"><i class="fas fa-arrow-up"></i></div>
+   <!-- <div class="scroll-up-btn"><i class="fas fa-arrow-down"></i></div>-->
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // JavaScript for typed animation
+        const profession = ["Web Developer", "Data Science Learner", "SEO Specialist"];
+        let i = 0;
+        const span = document.getElementById('profession');
+        function typingEffect() {
+            let job = profession[i].split('');
+            (function type() {
+                if (job.length > 0) {
+                    span.innerHTML += job.shift();
+                } else {
+                    setTimeout(eraseEffect, 2000);
+                    return;
+                }
+                setTimeout(type, 100);
+            })();
+        }
+
+        function eraseEffect() {
+            let job = profession[i].split('');
+            (function erase() {
+                if (job.length > 0) {
+                    job.pop();
+                    span.innerHTML = job.join('');
+                } else {
+                    i++;
+                    if (i >= profession.length) i = 0;
+                    typingEffect();
+                    return;
+                }
+                setTimeout(erase, 100);
+            })();
+        }
+
+        setTimeout(typingEffect, 500);
+        function scrollContent(direction) {
+    const container = document.querySelector('.about-content');
+    const scrollAmount = 300; // Adjust scroll amount as needed
+
+    if (direction === 'left') {
+        container.scrollLeft -= scrollAmount;
+    } else if (direction === 'right') {
+        container.scrollLeft += scrollAmount;
+    }
+}
+        function scrollSkills(direction) {
+            const container = document.querySelector('.skills-content');
+            const scrollAmount = 300; // Adjust scroll amount as needed
+
+            if (direction === 'left') {
+                container.scrollLeft -= scrollAmount;
+            } else if (direction === 'right') {
+                container.scrollLeft += scrollAmount;
+            }
+        }
+        $(document).ready(function() {
+            $(window).scroll(function() {
+                if ($(this).scrollTop() > 100) {
+                    $('.scroll-up-btn').addClass('show');
+                } else {
+                    $('.scroll-up-btn').removeClass('show');
+                }
+            });
+
+            $('.scroll-up-btn').click(function() {
+                $('html, body').animate({scrollTop: 0}, 600);
+                return false;
+            });
+
+            $(window).on('scroll', function() {
+                if ($(window).scrollTop()) {
+                    $('header').addClass('sticky');
+                } else {
+                    $('header').removeClass('sticky');
+                }
+            });
+        });
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+            
+            // Optionally send form data via AJAX here
+
+            // Clear the form fields
+            this.reset();
+
+            // Show a message or take some action to indicate the form was submitted
+            alert('Sent successfully!');
+        });
+        
+    </script>
+</body>
+</html>
